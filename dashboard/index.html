@@ -3,19 +3,18 @@
     <head>
         <title>DEI - Availability</title>
         <script src="./js/tailwind.js"></script>
+        <script src="./js/main.js" defer></script>
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body class="bg-white w-full h-screen overflow-hidden">
         <main class="w-full h-full">
             <div class="flex h-full">
                 <!-- Left Banner -->
-                <section class="w-[130rem] h-full bg-black flex flex-col justify-between">
+                <section class="w-[30rem] h-full bg-black flex flex-col justify-between">
                     <div class="h-full">
                         <!-- Indicator telling if the secretary is open or closed -->
                         <div class="h-[5rem] w-full flex justify-center items-center">
-                            <div class="w-32 border-2 border-red-600 rounded-lg px-4 py-1 text-center">
-                                <h1 id="secretaryStatus" class="text-white text-red-600">Encerrado</h1>
-                            </div>
+                            <h1 id="timer" class="text-3xl text-slate-200 text-center font-medium">--:--:--</h1>
                         </div>
                         <div>
                             <div class="flex justify-between items-center px-4">
@@ -35,7 +34,7 @@
                     </header>
 
                     <!-- Main Components -->
-                    <section class="px-4">
+                    <section class="px-10">
                         <div class="flex justify-end w-full space-x-4 my-4">
                             <div class="px-4 bg-slate-700 flex items-center justify-center rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
