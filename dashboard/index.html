@@ -5,118 +5,144 @@
         <script src="./js/tailwind.js"></script>
         <link rel="stylesheet" href="./css/style.css">
     </head>
-    <body class="bg-white w-full h-full">
-        <header class="h-20 bg-black">
-            <img src="https://dei.fe.up.pt/wp-content/uploads/2021/08/LOGO_DEI-e-feup-02.svg" class="h-full py-2 mx-auto">
-        </header>
-        <main class="w-full mt-8 px-10 mx-auto">
-
-            <section class="flex justify-end w-full space-x-4">
-                <div class="px-4 py-2 bg-slate-700 flex items-center justify-center rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-                    </svg>
-                    <div class="ml-3 flex flex-col">
-                        <p class="text-sm text-sky-600">Tempo de espera</p>
-                        <p class="text-sm text-white">~ 30 min</p>
+    <body class="bg-white w-full h-screen overflow-hidden">
+        <main class="w-full h-full">
+            <div class="flex h-full">
+                <!-- Left Banner -->
+                <section class="w-[130rem] h-full bg-black flex flex-col justify-between">
+                    <div class="h-full">
+                        <!-- Indicator telling if the secretary is open or closed -->
+                        <div class="h-[5rem] w-full flex justify-center items-center">
+                            <div class="w-32 border-2 border-red-600 rounded-lg px-4 py-1 text-center">
+                                <h1 id="secretaryStatus" class="text-white text-red-600">Encerrado</h1>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center px-4">
+                                <h1 class="text-sky-700 font-medium">Últimos eventos</h1>
+                                <h1 class="text-sky-700 font-medium">3</h1>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="px-4 py-2 bg-slate-700 flex items-center justify-center rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
-                    </svg>
-                    <div class="ml-3 flex flex-col">
-                        <p class="text-sm text-sky-600">Ocupação da sala</p>
-                        <p class="text-sm text-white">80%</p>
-                    </div>
-                </div>
-            </section>
+                    <video src="./videos/bluesky.mov" autoplay muted loop class="w-full bg-s"></video>
+                </section>
+                
+                <!-- Right Banner -->
+                <section class="h-full">
+                    <!-- Header -->
+                    <header class="h-[5rem] bg-black">
+                        <img src="https://dei.fe.up.pt/wp-content/uploads/2021/08/LOGO_DEI-e-feup-02.svg" class="h-full py-2 mx-auto">
+                    </header>
 
-            <section class="mt-8">
-                <!-- First Table Line -->
-                <div class="grid grid-cols-5 gap-10">
-                    <svg viewBox="0 0 150 105" class="w-full table-section">
-                        <clipPath id="clipColor">
-                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
-                        </clipPath>
-                        <!-- Table -->
-                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
-                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
-                        <!-- Chair -->
-                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
-                        <!-- Information -->
-                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
-                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
-                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
-                    </svg>
+                    <!-- Main Components -->
+                    <section class="px-4">
+                        <div class="flex justify-end w-full space-x-4 my-4">
+                            <div class="px-4 bg-slate-700 flex items-center justify-center rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                </svg>
+                                <div class="ml-3 flex flex-col">
+                                    <p class="text-sm text-sky-600">Tempo de espera</p>
+                                    <p class="text-sm text-white">~ 30 min</p>
+                                </div>
+                            </div>
+                            <div class="px-4 py-2 bg-slate-700 flex items-center justify-center rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
+                                </svg>
+                                <div class="ml-3 flex flex-col">
+                                    <p class="text-sm text-sky-600">Ocupação da sala</p>
+                                    <p class="text-sm text-white">80%</p>
+                                </div>
+                            </div>
+                        </div>
                     
-                    <svg viewBox="0 0 150 105" class="w-full table-section">
-                        <clipPath id="clipColor">
-                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
-                        </clipPath>
-                        <!-- Table -->
-                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
-                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
-                        <!-- Chair -->
-                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
-                        <!-- Information -->
-                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 2</text>
-                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
-                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
-                    </svg>
+                        <!-- First Table Line -->
+                        <div class="grid grid-cols-5 gap-10">
+                            <svg viewBox="0 0 150 105" class="h-full w-full table-section">
+                                <clipPath id="clipColor">
+                                    <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                                </clipPath>
+                                <!-- Table -->
+                                <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                                <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                                <!-- Chair -->
+                                <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                                <!-- Information -->
+                                <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
+                                <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                                <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                            </svg>
+                            
+                            <svg viewBox="0 0 150 105" class="h-full w-full table-section">
+                                <clipPath id="clipColor">
+                                    <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                                </clipPath>
+                                <!-- Table -->
+                                <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                                <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                                <!-- Chair -->
+                                <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                                <!-- Information -->
+                                <text x="7" y="45" class="table-number fill-gray-300">Mesa 2</text>
+                                <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                                <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                            </svg>
 
-                    <svg viewBox="0 0 150 105" class="w-full table-section">
-                        <clipPath id="clipColor">
-                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
-                        </clipPath>
-                        <!-- Table -->
-                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
-                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
-                        <!-- Chair -->
-                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
-                        <!-- Information -->
-                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 3</text>
-                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
-                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
-                    </svg>
+                            <svg viewBox="0 0 150 105" class="h-full w-full table-section">
+                                <clipPath id="clipColor">
+                                    <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                                </clipPath>
+                                <!-- Table -->
+                                <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                                <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                                <!-- Chair -->
+                                <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                                <!-- Information -->
+                                <text x="7" y="45" class="table-number fill-gray-300">Mesa 3</text>
+                                <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                                <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                            </svg>
 
-                    <svg viewBox="0 0 150 105" class="w-full table-section">
-                        <clipPath id="clipColor">
-                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
-                        </clipPath>
-                        <!-- Table -->
-                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
-                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
-                        <!-- Chair -->
-                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
-                        <!-- Information -->
-                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 4</text>
-                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
-                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
-                    </svg>
-                </div>
+                            <svg viewBox="0 0 150 105" class="h-full w-full table-section">
+                                <clipPath id="clipColor">
+                                    <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                                </clipPath>
+                                <!-- Table -->
+                                <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                                <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                                <!-- Chair -->
+                                <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                                <!-- Information -->
+                                <text x="7" y="45" class="table-number fill-gray-300">Mesa 4</text>
+                                <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                                <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                            </svg>
+                        </div>
 
-                <!-- Second Table Line -->
-                <div class="grid grid-cols-5 gap-10 px-10 mx-auto">
-                    <div class="col-span-4">
-
-                    </div>
-                    <svg viewBox="0 0 150 105" class="w-full table-section rotate-90">
-                        <clipPath id="clipColor">
-                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
-                        </clipPath>
-                        <!-- Table -->
-                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
-                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
-                        <!-- Chair -->
-                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
-                        <!-- Information -->
-                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
-                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
-                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
-                    </svg>
-                </div>
-            </section>
+                        <!-- Second Table Line -->
+                        <div class="grid grid-cols-5 gap-10 mx-auto">
+                            <div class="col-span-4">
+                                <h1>Something here</h1>
+                            </div>
+                            <svg viewBox="0 0 150 105" class="w-full table-section rotate-90">
+                                <clipPath id="clipColor">
+                                    <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                                </clipPath>
+                                <!-- Table -->
+                                <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                                <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                                <!-- Chair -->
+                                <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                                <!-- Information -->
+                                <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
+                                <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                                <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                            </svg>
+                        </div>
+                    </section>
+                </section>
+            </div>
         </main>
     </body>
 </html>
