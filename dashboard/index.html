@@ -1,98 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Secretaria LEIC</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="fontawesome/css/all.css"/>
-  </head>
-  
-  <script src="js/mqttws31.js" type="text/javascript"></script>
-  <script src="js/subscribe.js" type="text/javascript"></script>
-  <script src="js/index.js" type="text/javascript"></script>
+<html>
+    <head>
+        <title>DEI - Availability</title>
+        <script src="./js/tailwind.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body class="bg-white w-full h-full">
+        <header class="h-20 bg-black">
+            <img src="https://dei.fe.up.pt/wp-content/uploads/2021/08/LOGO_DEI-e-feup-02.svg" class="h-full py-2 mx-auto">
+        </header>
+        <main class="w-full mt-8 px-10 mx-auto">
 
-  <body>
-    <main>
-    <h1 class="titulo">
-      Secretaria do Departamento de Engenharia Informática e Computação
-    </h1>
+            <section class="flex justify-end w-full space-x-4">
+                <div class="px-4 py-2 bg-slate-700 flex items-center justify-center rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    </svg>
+                    <div class="ml-3 flex flex-col">
+                        <p class="text-sm text-sky-600">Tempo de espera</p>
+                        <p class="text-sm text-white">~ 30 min</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 bg-slate-700 flex items-center justify-center rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-sky-600" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
+                    </svg>
+                    <div class="ml-3 flex flex-col">
+                        <p class="text-sm text-sky-600">Ocupação da sala</p>
+                        <p class="text-sm text-white">80%</p>
+                    </div>
+                </div>
+            </section>
 
-    <div id="mesa1" class="mesa" onclick="send_mqtt_msg(1)">
-      <div class="text">
-        <h4 class="name"> Mesa 1 </h4 >
+            <section class="mt-8">
+                <!-- First Table Line -->
+                <div class="grid grid-cols-5 gap-10">
+                    <svg viewBox="0 0 150 105" class="w-full table-section">
+                        <clipPath id="clipColor">
+                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                        </clipPath>
+                        <!-- Table -->
+                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                        <!-- Chair -->
+                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                        <!-- Information -->
+                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
+                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                    </svg>
+                    
+                    <svg viewBox="0 0 150 105" class="w-full table-section">
+                        <clipPath id="clipColor">
+                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                        </clipPath>
+                        <!-- Table -->
+                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                        <!-- Chair -->
+                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                        <!-- Information -->
+                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 2</text>
+                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                    </svg>
 
-        <div id="led1">
-          
-          <p id="color1" class="estado_green"> <i class="fa-solid fa-circle-check fa-bounce" style="font-size:30px;color: #34ace0;"></i>  Livre </p>
-        </div> 
+                    <svg viewBox="0 0 150 105" class="w-full table-section">
+                        <clipPath id="clipColor">
+                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                        </clipPath>
+                        <!-- Table -->
+                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                        <!-- Chair -->
+                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                        <!-- Information -->
+                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 3</text>
+                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                    </svg>
 
-        <h2 class="name"> Outras Informações </h2>
-      </div>
-      </div>
+                    <svg viewBox="0 0 150 105" class="w-full table-section">
+                        <clipPath id="clipColor">
+                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                        </clipPath>
+                        <!-- Table -->
+                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                        <!-- Chair -->
+                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                        <!-- Information -->
+                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 4</text>
+                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                    </svg>
+                </div>
 
-      <div id="mesa2" class="mesa" onclick="send_mqtt_msg(2)">
-        <div class="text">
-          <h4 class="name"> Mesa 2 </h4>
+                <!-- Second Table Line -->
+                <div class="grid grid-cols-5 gap-10 px-10 mx-auto">
+                    <div class="col-span-4">
 
-          <div id="led2">
-            <p id="color2" class="estado_green"> <i class="fa-solid fa-circle-check fa-bounce" style="font-size:30px;color: #34ace0;"></i> Livre </p>
-          </div> 
-
-          <h2 class="name"> CINF / PROFDEI / MCI </h2>
-        </div>
-      </div>
-
-      <div id="mesa3" class="mesa" onclick="send_mqtt_msg(3)">
-        <div class="text">
-          <h4 class="name"> Mesa 3 </h4>
-
-          <div id="led3">
-            <p id="color3" class="estado_green"> <i class="fa-solid fa-circle-check fa-bounce" style="font-size:30px;color: #34ace0;"></i> Livre </p>
-          </div> 
-
-          <h2 class="name"> MM / PDMD </h2>
-        </div>
-      </div>
-
-      <div id="mesa4" class="mesa" onclick="send_mqtt_msg(4)">
-        <div class="text">
-          <h4 class="name"> Mesa 4 </h4>
-
-          <div id="led4">
-            <p id="color4" class="estado_green"> <i class="fa-solid fa-circle-check fa-bounce" style="font-size:30px;color: #34ace0;"></i> Livre </p>
-          </div> 
-
-          <h2 class="name"> MESW / MECD </h2>
-        </div>
-      </div>
-
-
-    <div class="container_left">
-
-      <img class="video" src="images/2068947.jpeg" alt="Faculdade de Engenharia da Universidade do Porto" style="height: 33em;">
-
-      <div class="container_right">
-       
-        <div id="mesa5" class="mesa_5"  onclick="send_mqtt_msg(5)"> 
-          <div class="text">
-            <h4 class="name"> Mesa 5 </h4>
-
-            <div id="led5">
-              <p id="color5" class="estado_green"> <i class="fa-solid fa-circle-check fa-bounce" style="font-size:30px;color: #34ace0;"></i> Livre </p>
-            </div> 
-
-            <h2 class="name"> MEIC / LEIC </h2>
-          </div>
-        </div>
-
-        <div class="logo_container">
-          <img class="logo_image" src="images/feup_logo_remove.png" alt="FEUP logo"/>
-          <div class="clock" id="time"></div>
-        </div>
-      
-      </div>
-    </div>
-  </main>
-  </body>
+                    </div>
+                    <svg viewBox="0 0 150 105" class="w-full table-section rotate-90">
+                        <clipPath id="clipColor">
+                            <rect x="0" y="30" width="150" height="75" rx="5" ry="5"/>
+                        </clipPath>
+                        <!-- Table -->
+                        <rect x="0" y="30" width="150" height="75" clip-path="url(#clipColor)" class="fill-slate-800"/>
+                        <rect x="0" y="97.5" width="150" height="7.5" clip-path="url(#clipColor)" class="fill-green-500"/>
+                        <!-- Chair -->
+                        <path d="M 44 27 V 27 Q 44 1 71 1 L 83 1 Q 110 1 110 27 z" class="fill-slate-800"></path>
+                        <!-- Information -->
+                        <text x="7" y="45" class="table-number fill-gray-300">Mesa 1</text>
+                        <text x="7" y="90" class="info-text fill-green-500">Disponível</text>
+                        <text x="120" y="90" class="countdown fill-gray-300">00:00</text>
+                    </svg>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>
