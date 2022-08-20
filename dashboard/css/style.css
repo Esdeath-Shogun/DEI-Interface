@@ -12,3 +12,9 @@
     font-size: 0.65rem;
     font-weight: 300;
 }
+
+.main-container{
+    height: 90vh;
+    max-height: 90vh;
+    width: 100%;
+}
