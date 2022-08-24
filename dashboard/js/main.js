@@ -32,3 +32,6 @@ function updateTime(){
 // Script Execution
 updateTime();
 setInterval(updateTime.bind(this), 1000);
+
+// Request RSS Feed
+// [TODO: CORS Policy - Currently Impossible]
